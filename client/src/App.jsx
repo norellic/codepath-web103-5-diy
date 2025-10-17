@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRoutes } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import ViewCars from './pages/ViewCars'
@@ -27,10 +27,27 @@ const App = () => {
     }
   ])
 
+  const [creatures, setCreatures] = useState([]);
+
+  useEffect(() => {
+    const fetchCreatures = async () => {
+      const response = await fetch('api/creatures')
+      const data = await response.json()
+      setCreatures(data)
+    }
+    fetchCreatures()
+  }, [])
+
   return (
     <div className='app'>
 
       <Navigation />
+
+        {creatures.map((c) => (
+          <div key={c.id}>
+            <h2>{c.name}</h2>
+          </div>
+        ))}
 
       { element }
 
