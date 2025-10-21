@@ -8,4 +8,9 @@ router.get('/creatures', (req, res, next) => {
     next();
 }, creatureController.getCreatures)
 
+router.get('/creatures/:creatureId', (req, res, next) => {
+    console.log("GET /creatureId");
+    next();
+}, creatureController.getCreatureById)
+
 export default router
