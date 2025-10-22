@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <nav>
             <ul>
-                <li><h1>Corperate Creature</h1></li>
+                <li><h1>Corporate Creature</h1></li>
             </ul>
 
             <ul>
