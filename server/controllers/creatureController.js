@@ -45,4 +45,21 @@ const createCreature = async(req, res) => {
     }
 }
 
-export default { getCreatures, getCreatureById, createCreature }
+const updateCreature = async(req, res) => {
+    try {
+        const creatureId = req.params.creatureId
+        const { name, body, drink, mood, color, accessory, stress_level } = req.body
+
+        const results = await pool.query(`
+        UPDATE corpCreature
+        SET name = $1, body = $2, drink = $3, mood = $4, color = $5, accessory = $6, stress_level = $7
+        WHERE id = $8`, [name, body, drink, mood, color, accessory, stress_level, creatureId])
+
+        res.status(201).json(results.rows[0])
+
+    } catch(error) {
+        res.status(409).json( { error: error.message })
+    }
+}
+
+export default { getCreatures, getCreatureById, createCreature, updateCreature }

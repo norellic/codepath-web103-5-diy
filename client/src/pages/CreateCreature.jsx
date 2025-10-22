@@ -32,14 +32,13 @@ const CreateCreature = () => {
             const data = await response.json();
             console.log("Server response:", data);
       
-            // Only redirect if needed
-            // window.location = '/';
+            //redirect
+            window.location = '/creatures';
+
           } catch (err) {
             console.error(err);
           }
     }
-
-    
 
     return (
         <div>
