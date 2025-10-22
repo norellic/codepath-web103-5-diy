@@ -49,20 +49,25 @@ const CreatureDetails = () => {
 
     return (
         <div>
-            <h2>{creatureDetails.name}</h2>
-            <p>Body: {creatureDetails.body}</p>
-            <p>Drink: {creatureDetails.drink}</p>
-            <p>Mood: {creatureDetails.mood}</p>
-            <p>Accessory: {creatureDetails.accessory}</p>
-            <p>Color: {creatureDetails.color}</p>
-            <p>Stress Level: {creatureDetails.stress_level}</p>
+            <div className="left-container">
+                <h2>{creatureDetails.name}</h2>
+                <p>Body: {creatureDetails.body}</p>
+                <p>Drink: {creatureDetails.drink}</p>
+                <p>Mood: {creatureDetails.mood}</p>
+                <p>Accessory: {creatureDetails.accessory}</p>
+                <p>Color: {creatureDetails.color}</p>
+                <p>Stress Level: {creatureDetails.stress_level}</p>
 
-            < Link to={`/edit/${creatureId}`}>
-                <button>Edit Creature</button>
-            </Link>
+                < Link to={`/edit/${creatureId}`}>
+                    <button>Edit Creature</button>
+                </Link>
 
-            <button onClick={deleteCreature}>Delete</button>
+                <button onClick={deleteCreature}>Delete</button>
+            </div>
 
+            <div className="right-container">
+                <img src={`/avatarImages/${creatureDetails.body}.png`}></img>
+            </div>
         </div>
     )
 }
