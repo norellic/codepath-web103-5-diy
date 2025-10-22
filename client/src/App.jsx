@@ -1,8 +1,8 @@
 import { useRoutes } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import ViewCreatures from './pages/ViewCreatures'
-import EditCar from './pages/EditCar'
-import CreateCar from './pages/CreateCar'
+import EditCreature from './pages/EditCreature'
+import CreateCreature from './pages/CreateCreature'
 import CreatureDetails from './pages/CreatureDetails'
 import './App.css'
 
@@ -10,7 +10,7 @@ const App = () => {
   let element = useRoutes([
     {
       path: '/',
-      element: <CreateCar title='BOLT BUCKET | Customize' />
+      element: <CreateCreature title='BOLT BUCKET | Customize Creature' />
     },
     {
       path:'/creatures',
@@ -18,11 +18,11 @@ const App = () => {
     },
     {
       path: '/creatures/:creatureId',
-      element: <CreatureDetails title='CorpCreature | Edit Creature' />
+      element: <CreatureDetails title='CorpCreature | Creature Details' />
     },
     {
-      path: '/edit/:id',
-      element: <EditCar title='BOLT BUCKET | Edit' />
+      path: '/edit/:creatureId',
+      element: <EditCreature title='CorpCreature | Edit Creature' />
     }
   ])
 

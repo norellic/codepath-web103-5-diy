@@ -26,4 +26,23 @@ const getCreatureById = async (req, res) => {
     }
 }
 
-export default { getCreatures, getCreatureById }
+const createCreature = async(req, res) => {
+    try {
+        const { name, body, drink, mood, color, accessory, stress_level } = req.body
+
+        console.log("Incoming data:", req.body);
+
+        const results = await pool.query(`
+            INSERT INTO  corpCreature (name, body, drink, mood, color, accessory, stress_level)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            RETURNING *`,
+            [name, body, drink, mood, color, accessory, stress_level])
+
+            res.status(201).json(results.rows[0])
+
+    } catch(error) {
+            res.status(409).json( { error: error.message })
+    }
+}
+
+export default { getCreatures, getCreatureById, createCreature }

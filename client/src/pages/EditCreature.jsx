@@ -1,10 +1,10 @@
 import React from 'react'
 import '../App.css'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import AttributeForm from '../components/attributeForm'
 
-const CreatureDetails = () => {
-
+const EditCreature = () => {
     const { creatureId } = useParams();
     const [creatureDetails, setCreatureDetails] = useState([]);
 
@@ -17,23 +17,21 @@ const CreatureDetails = () => {
         }
 
         fetchCreatureDetails()
-    }, [creatureId])
-
+    }, [])
+    
     return (
         <div>
+            <p>I am the edit page.</p>
+            
+
             <h2>{creatureDetails.name}</h2>
             <p>Body: {creatureDetails.body}</p>
             <p>Drink: {creatureDetails.drink}</p>
-            <p>Mood: {creatureDetails.mood}</p>
-            <p>Accessory: {creatureDetails.accessory}</p>
-            <p>Color: {creatureDetails.color}</p>
-            <p>Stress Level: {creatureDetails.stress_level}</p>
 
-            < Link to={`/edit/${creatureId}`}>
-                <button>Edit Creature</button>
-            </Link>
+            <AttributeForm />
+
         </div>
     )
 }
 
-export default CreatureDetails
+export default EditCreature
