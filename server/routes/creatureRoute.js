@@ -21,4 +21,6 @@ router.post('/creatures', creatureController.createCreature)
 
 router.patch('/creatures/:creatureId', creatureController.updateCreature)
 
+router.delete('/creatures/:creatureId', creatureController.deleteCreature)
+
 export default router

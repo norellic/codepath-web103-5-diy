@@ -62,4 +62,16 @@ const updateCreature = async(req, res) => {
     }
 }
 
-export default { getCreatures, getCreatureById, createCreature, updateCreature }
+const deleteCreature = async(req, res) => {
+    try {
+        const creatureId = req.params.creatureId
+        const results = await pool.query('DELETE FROM corpCreature WHERE id = $1', [creatureId])
+
+        res.status(200).json(results.rows[0])
+
+    } catch(error) {
+        res.status(409).json( { error: error.message } )
+    }
+}
+
+export default { getCreatures, getCreatureById, createCreature, updateCreature, deleteCreature }

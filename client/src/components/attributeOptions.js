@@ -7,8 +7,7 @@ export const ATTRIBUTE_OPTIONS = {
 };
 
     
-    //import it into edit page
-    //connect it to patch request(stringify inputs) so it updates
+    
 
     //add delete button and delete request to details page
 
@@ -21,3 +20,5 @@ export const ATTRIBUTE_OPTIONS = {
     //make multiple choice form component
     //import it into create page
     //connect it to put(?) or insert request so it adds
+    //import it into edit page
+    //connect it to patch request(stringify inputs) so it updates

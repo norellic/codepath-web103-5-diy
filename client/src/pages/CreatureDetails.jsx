@@ -19,6 +19,34 @@ const CreatureDetails = () => {
         fetchCreatureDetails()
     }, [creatureId])
 
+    const deleteCreature = async (event) => {
+        event.preventDefault()
+
+        console.log("Form submitted!");
+        console.log("Data being sent:", creatureDetails);
+
+        try {
+            const options = { 
+              method: 'DELETE'
+            };
+      
+            const response = await fetch(`/api/creatures/${creatureId}`, options);
+
+            let data = null;
+            if (response.ok) {
+              const text = await response.text();
+              if (text) data = JSON.parse(text);
+            }
+        
+            console.log("Server response:", data);
+        
+            window.location.href = `/creatures`;
+            
+          } catch (err) {
+            console.error(err);
+          }
+    }
+
     return (
         <div>
             <h2>{creatureDetails.name}</h2>
@@ -32,6 +60,9 @@ const CreatureDetails = () => {
             < Link to={`/edit/${creatureId}`}>
                 <button>Edit Creature</button>
             </Link>
+
+            <button onClick={deleteCreature}>Delete</button>
+
         </div>
     )
 }
