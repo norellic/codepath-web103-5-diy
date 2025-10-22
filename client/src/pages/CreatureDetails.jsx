@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import '../css/CreatureDetails.css'
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -48,8 +49,8 @@ const CreatureDetails = () => {
     }
 
     return (
-        <div>
-            <div className="left-container">
+        <div className="full-container">
+            <div className="left-half">
                 <h2>{creatureDetails.name}</h2>
                 <p>Body: {creatureDetails.body}</p>
                 <p>Drink: {creatureDetails.drink}</p>
@@ -65,7 +66,7 @@ const CreatureDetails = () => {
                 <button onClick={deleteCreature}>Delete</button>
             </div>
 
-            <div className="right-container">
+            <div className="right-half">
                 <img src={`/avatarImages/${creatureDetails.body}.png`}></img>
             </div>
         </div>

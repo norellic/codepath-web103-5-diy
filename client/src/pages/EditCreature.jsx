@@ -1,5 +1,6 @@
 import React from 'react'
-import '../App.css'
+//import '../App.css'
+import '../css/CreatureDetails.css'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import AttributeForm from '../components/attributeForm'
@@ -57,9 +58,12 @@ const EditCreature = () => {
           }
     }
 
-    
+    // add to return clause to debug
+    //<pre>{JSON.stringify(creatureDetails, null, 2)}</pre>
+
     return (
-        <div>
+        <div className="full-container">
+          <div className="left-half">
             <form onSubmit={updateCreature}>
 
             <AttributeForm 
@@ -69,9 +73,15 @@ const EditCreature = () => {
 
             <button type="submit">Update Creature</button>
             </form>
+          </div>
 
-            //debug
-            <pre>{JSON.stringify(creatureDetails, null, 2)}</pre>
+          <div className="right-half">
+            <div className="creature-preview">
+              <img src={`/avatarImages/${creatureDetails.body}.png`}  className="body-layer"/>
+
+              <img src={`/avatarImages/${creatureDetails.accessory}.png`}  className="accessory-layer"/>
+            </div>
+          </div>
 
         </div>
     )

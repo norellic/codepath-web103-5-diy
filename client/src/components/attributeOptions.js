@@ -7,7 +7,7 @@ export const ATTRIBUTE_OPTIONS = {
 };
 
 
-    //make picture change with the selection OR stress_level is added together properly(this seems easier)
+    //make picture change with the selection OR stress_level is added together   properly(this seems easier)
     //make impossible combo of selections
 
     //make the color choice change the color(ideally)
